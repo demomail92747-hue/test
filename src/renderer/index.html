@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZeroTrace</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.1.0"></script>
+</head>
+<body>
+  <header class="topbar glass">
+    <h1>ZeroTrace</h1>
+    <div class="toolbar">
+      <input id="search" type="text" placeholder="Search installed apps..." />
+      <select id="sortBy">
+        <option value="name">Sort: Name</option>
+        <option value="size">Sort: Size</option>
+        <option value="installDate">Sort: Install Date</option>
+      </select>
+      <button id="refreshBtn">Refresh</button>
+      <button id="snapshotBtn">Take Snapshot</button>
+      <button id="bloatwareBtn">Detect Bloatware</button>
+      <button id="batchUninstallBtn" class="danger">Batch Uninstall</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="tablePane glass">
+      <table>
+        <thead>
+          <tr>
+            <th><input id="selectAll" type="checkbox" /></th>
+            <th>Name</th>
+            <th>Size</th>
+            <th>Installed Date</th>
+            <th>Publisher</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="appsTable"></tbody>
+      </table>
+    </section>
+
+    <aside class="detailPane glass">
+      <h2>Application Details</h2>
+      <div id="details"></div>
+      <div class="actions">
+        <button id="uninstallBtn">Uninstall</button>
+        <button id="forceUninstallBtn" class="danger">Force Uninstall</button>
+        <button id="scanBtn">Scan Leftovers</button>
+      </div>
+      <h3>Leftover Candidates</h3>
+      <div id="leftoversTree"></div>
+    </aside>
+  </main>
+
+  <div id="progressModal" class="modal hidden">
+    <div class="modalCard glass">
+      <h3>Operation Progress</h3>
+      <p id="progressText">Waiting...</p>
+      <div class="spinner"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

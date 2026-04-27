@@ -1,0 +1,13 @@
+{
+  "largeAppThresholdBytes": 5368709120,
+  "knownJunk": [
+    "toolbar",
+    "coupon",
+    "adaware",
+    "wildtangent",
+    "driver updater",
+    "pc cleaner",
+    "trial",
+    "optimizer"
+  ]
+}

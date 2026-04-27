@@ -1,0 +1,42 @@
+{
+  "name": "zerotrace",
+  "version": "1.0.0",
+  "description": "Portable Windows uninstaller and leftover scanner",
+  "main": "src/main/main.js",
+  "author": "ZeroTrace Team",
+  "license": "MIT",
+  "scripts": {
+    "dev": "electron .",
+    "build": "electron-builder --win portable",
+    "release:tag": "node -e \"const v=require('./package.json').version; console.log(`Tag and push: git tag v${v} && git push origin v${v}`)\""
+  },
+  "dependencies": {
+    "fuse.js": "^7.1.0"
+  },
+  "devDependencies": {
+    "electron": "^37.0.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.zerotrace.app",
+    "productName": "ZeroTrace",
+    "directories": {
+      "buildResources": "build"
+    },
+    "files": [
+      "src/**/*",
+      "scripts/**/*",
+      "data/**/*",
+      "logs/**/*",
+      "package.json",
+      "README.md"
+    ],
+    "win": {
+      "target": "portable",
+      "requestedExecutionLevel": "highestAvailable"
+    },
+    "portable": {
+      "artifactName": "ZeroTrace-Portable-${version}.exe"
+    }
+  }
+}
