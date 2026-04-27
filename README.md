@@ -173,3 +173,18 @@ Configured in `package.json`:
 - Shared/system registry paths require caution; script logic avoids obvious shared Microsoft/Windows keys.
 - Run as administrator for operations requiring elevated access.
 - Offline-only architecture: no cloud calls or remote backend.
+
+## First Version Release (Portable EXE)
+
+This repository now includes a Windows release workflow at:
+- `.github/workflows/release.yml`
+
+How to publish the first EXE release:
+
+1. Ensure `package.json` version is correct (for first release use `1.0.0` or desired semver).
+2. Create and push a version tag:
+   - `git tag v1.0.0`
+   - `git push origin v1.0.0`
+3. GitHub Actions will build on `windows-latest` and publish the generated portable EXE to the GitHub Release.
+
+The release workflow also uploads the EXE as a build artifact.

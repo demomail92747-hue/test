@@ -7,7 +7,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "electron .",
-    "build": "electron-builder --win portable"
+    "build": "electron-builder --win portable",
+    "release:tag": "node -e \"const v=require('./package.json').version; console.log(`Tag and push: git tag v${v} && git push origin v${v}`)\""
   },
   "dependencies": {
     "fuse.js": "^7.1.0"
